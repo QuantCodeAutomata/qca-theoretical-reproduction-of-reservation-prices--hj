@@ -1,0 +1,30 @@
+============================================================
+Experiment 1: Theoretical Derivations — Results
+============================================================
+
+--- Check outcomes ---
+  zero_inventory            PASS
+  monotonicity_in_q         PASS
+  convergence_maturity      PASS
+  gamma_zero_limit          PASS
+
+--- Spread values (2/gamma)*ln(1+gamma/k) ---
+  k = 1.5
+  gamma=0.010  spread=1.3289
+  gamma=0.100  spread=1.2908
+  gamma=0.500  spread=1.1507
+
+--- Sample reservation prices (gamma=0.1, S=100, sigma=2, T=1) ---
+     q    t=0.00    t=0.25    t=0.50    t=0.75
+    -3  101.2000  100.9000  100.6000  100.3000
+    -1  100.4000  100.3000  100.2000  100.1000
+     0  100.0000  100.0000  100.0000  100.0000
+     1   99.6000   99.7000   99.8000   99.9000
+     3   98.8000   99.1000   99.4000   99.7000
+
+--- Sample quote distances (gamma=0.1, sigma=2, T=1, k=1.5, q=2) ---
+       t     delta_a     delta_b
+    0.00     0.04539     1.64539
+    0.25     0.19539     1.39539
+    0.50     0.34539     1.14539
+    0.75     0.49539     0.89539

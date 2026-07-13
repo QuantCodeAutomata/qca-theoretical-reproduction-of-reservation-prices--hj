@@ -1,0 +1,44 @@
+=== Experiment 4: Execution Intensity Derivation Results ===
+
+--- Exponential Intensity ---
+  intensity_expr : A*exp(-delta*k)
+  k_formula      : K*alpha
+  A_formula      : Lambda/alpha
+  tail_prob      : (exp(-K*delta)/c)**alpha
+  Step 1: Assume P(Q > q) ~ q^{-alpha}  (power-law tail, normalized at q=1)
+  Step 2: Logarithmic price impact: Delta_p = (1/K) * ln(Q)  =>  Q = exp(K * Delta_p)
+  Step 3: P(Delta_p > delta) = P(Q > c * exp(K * delta))  for threshold constant c > 0
+  Step 4: Substitute: P(Q > c*exp(K*delta)) ~ [c*exp(K*delta)]^{-alpha}
+          = c^{-alpha} * exp(-alpha * K * delta)
+  Step 5: lambda(delta) = Lambda * c^{-alpha} * exp(-alpha * K * delta)
+          = A * exp(-k * delta)  where A = Lambda * c^{-alpha},  k = alpha * K
+
+--- Power-Law Intensity ---
+  intensity_expr : B/delta**(alpha/beta)
+  exponent       : alpha/beta
+  Step 1: Assume P(Q > q) ~ q^{-alpha}  (power-law tail, normalized at q=1)
+  Step 2: Power-law price impact: Delta_p ~ Q^{beta}  =>  Q ~ (Delta_p)^{1/beta}
+  Step 3: P(Delta_p > delta) = P(Q > c * delta^{1/beta})  for threshold constant c > 0
+  Step 4: Substitute: P(Q > c*delta^{1/beta}) ~ [c * delta^{1/beta}]^{-alpha}
+          = c^{-alpha} * delta^{-alpha/beta}
+  Step 5: lambda(delta) = Lambda * c^{-alpha} * delta^{-alpha/beta}
+          = B * delta^{-alpha/beta}  where B = Lambda * c^{-alpha},  rho = alpha/beta
+
+--- Numerical Parameter Illustrations ---
+   alpha      K           A       k
+  ----------------------------------
+    1.40    0.5      0.7143   0.700
+    1.40    1.0      0.7143   1.400
+    1.40    2.0      0.7143   2.800
+    1.50    0.5      0.6667   0.750
+    1.50    1.0      0.6667   1.500
+    1.50    2.0      0.6667   3.000
+    1.53    0.5      0.6536   0.765
+    1.53    1.0      0.6536   1.530
+    1.53    2.0      0.6536   3.060
+
+--- Plots Saved ---
+  /workspace/project/results/exp4_exponential_intensity.png
+  /workspace/project/results/exp4_powerlaw_intensity.png
+  /workspace/project/results/exp4_shape_comparison.png
+  /workspace/project/results/exp4_paper_intensity.png

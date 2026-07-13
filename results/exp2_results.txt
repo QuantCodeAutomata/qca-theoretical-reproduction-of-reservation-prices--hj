@@ -1,0 +1,27 @@
+=== Experiment 2: Table-Faithful Monte Carlo Results ===
+
+Simulation time: 10.5s
+Total path records: 6000
+
+--- Summary Table ---
+-------------------------------------------------------------------------------------------
+   gamma          strategy    spread   mean_profit   std_profit   mean_final_q  std_final_q
+-------------------------------------------------------------------------------------------
+   0.010   inventory_aware    1.3289       68.2886       8.8183         0.0220       5.1418
+   0.010         symmetric    1.3289       68.5014      13.0937        -0.1030       8.4945
+   0.100   inventory_aware    1.2908       64.0426       6.0419         0.0310       2.8897
+   0.100         symmetric    1.2908       68.4655      13.1855        -0.1350       8.5534
+   0.500   inventory_aware    1.1507       23.8469       5.1813         0.0750       1.9731
+   0.500         symmetric    1.1507       67.7705      13.3650        -0.1630       8.7513
+-------------------------------------------------------------------------------------------
+
+--- Paper Target Comparison (gamma=0.1) ---
+ gamma        strategy       metric  paper_value  sim_value  abs_deviation  pct_deviation
+   0.1 inventory_aware  mean_profit       62.940  64.042580       1.102580       1.751795
+   0.1 inventory_aware   std_profit        5.890   6.041873       0.151873       2.578495
+   0.1 inventory_aware mean_final_q        0.100   0.031000      -0.069000     -69.000000
+   0.1 inventory_aware  std_final_q        2.800   2.889704       0.089704       3.203715
+   0.1       symmetric  mean_profit       67.210  68.465503       1.255503       1.868030
+   0.1       symmetric   std_profit       13.430  13.185462      -0.244538      -1.820834
+   0.1       symmetric mean_final_q       -0.018  -0.135000      -0.117000    -650.000000
+   0.1       symmetric  std_final_q        8.660   8.553358      -0.106642      -1.231431
